@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User Details
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  {% if get_flashed_messages() %}
+    <div class="alert alert-warning">
+      {% for msg in get_flashed_messages() %}
+        <p class="text-center">{{ msg }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <h1>Details for user: {{ user.username }}
+    <a class="btn btn-default btnCustom" href="{{url_for('users.index')}}"> All Users
+    </a>
+  </h1>
+  <br>
+</div>
+
+<div class="container-fluid">
+  <div class="row col-sm-8">
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="odd">
+        <td><b>Name</b></td>
+        <td>{{user.username}}</td>  
+      </tr>
+      <tr class="even">
+        <td><b>Email</b></td>
+        <td>{{user.email}}</td>  
+      </tr>
+      <tr class="odd">
+        <td><b>First Name</b></td>
+        <td>{{user.first_name}}</td>  
+      </tr>
+      <tr class="even">
+        <td><b>Last Name</b></td>
+        <td>{{user.last_name}}</td>  
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <form action="{{url_for('users.show', user_id=user.id)}}?_method=DELETE" method="POST">
+    <a class="btn btn-default btnCustom" href="{{url_for('users.edit', user_id=user.id)}}">
+      Edit
+    </a>
+    <input class="btn btn-default btnCustom" type="submit" value="Delete"></input>
+  </form>
+</div>
+
+{% endblock %}

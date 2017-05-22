@@ -1,0 +1,54 @@
+/*https://color.adobe.com/Blue-color-theme-7780766/edit/?copy=true&base=2&rule=Complementary&selected=4&name=Copy%20of%20Blue&mode=rgb&rgbvalues=0.5449016999999999,0.6992587574768292,0.7,0.9784309999999999,0.9998969178902524,1,0.878431,0.999419,1,0.7,0.5586591806021164,0.4749017,1,0.923665962500022,0.878431&swatchOrder=0,1,2,3,4*/
+
+body {
+  color: #384040; /*#724C36;*/
+  background-color: #E0FFFF;
+}
+
+a {
+  color: #707F7F
+}
+
+.alert {
+  padding: 5px;
+}
+
+.alert-warning {
+  background-color: #FFECE0;
+}
+
+.table-bordered>tbody>tr>td,
+.table-bordered>thead>tr>th,
+.table-bordered td {
+  border-color: #707F7F;
+}
+
+.table>thead>tr>th {
+  border-color: #707F7F;
+}
+
+.table>thead:first-child>tr:first-child>th {
+  border-top: 1px solid #707F7F;
+}
+
+tr.odd td {
+  background-color: #CAE5E5;
+}
+
+.btnCustom {
+  background-color: #B28E79;
+  transition: all 0.3s ease-in-out;
+  color: #F9FFFF;
+}
+
+.btnCustom:hover,
+.btnCustom:active,
+.btnCustom:focus {
+    background-color: #707F7F;
+    color: #F9FFFF;
+    border-color: #707F7F;
+}
+
+.messageField {
+  display: inline-block;
+}
