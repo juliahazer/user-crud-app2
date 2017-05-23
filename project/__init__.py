@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_modus import Modus
 import os
@@ -21,4 +21,4 @@ app.register_blueprint(messages_blueprint, url_prefix='/users/<int:user_id>/mess
 
 @app.route('/')
 def root():
-  return "Hello"
+  return redirect(url_for('users.index'))
