@@ -1,4 +1,5 @@
 from project import db
+from project.messages.models import Message
 
 class User(db.Model):
   __tablename__ = 'users'
@@ -8,7 +9,7 @@ class User(db.Model):
   email = db.Column(db.Text, unique=True, nullable=False)
   first_name = db.Column(db.Text)
   last_name = db.Column(db.Text)
-  # messages = db.relationship('Message', backref='user', lazy='dynamic')
+  messages = db.relationship('Message', backref='user', lazy='dynamic')
 
   def __init__(self, username, email, first_name, last_name):
     self.username = username

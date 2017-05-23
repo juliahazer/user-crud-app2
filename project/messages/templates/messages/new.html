@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Message: Add
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  {% if get_flashed_messages() %}
+    <div class="alert alert-warning">
+      {% for msg in get_flashed_messages() %}
+        <p class="text-center">{{ msg }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <h1>Add a Message: for {{user.username}}</h1>
+
+  <form action="{{url_for('messages.index', user_id=user.id)}}" method="POST">
+    {{ form.csrf_token }}
+    {% for field in form %}
+      {% if field.name != 'csrf_token' %}
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label col-form-label-lg">
+            {{ field.label }}
+          </label> 
+          <div class="col-sm-8">
+            {{ field }}
+            <span class="messageField">
+              {% if field.errors %}
+                {% for error in field.errors %}
+                  {{ error }}
+                {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+        </div>      
+      {% endif %}
+    {% endfor %}
+    <input class="btn btn-default btnCustom" type="submit" value="Add Message">
+    <a class="btn btn-default btnCustom" href="{{url_for('messages.index', user_id = user.id)}}">Cancel</a> 
+  </form>
+{% endblock %}
