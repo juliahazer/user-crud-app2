@@ -53,7 +53,7 @@ def show(user_id,msg_id):
   found_user = User.query.get_or_404(user_id)
   selected_message = Message.query.get_or_404(msg_id)
   if request.method == b'PATCH':
-    form = MessageForm(request.form)
+    form = MessageForm(request.form, obj=selected_message)
     if form.validate():
       form.populate_obj(selected_message)
       db.session.add(selected_message)
@@ -68,4 +68,4 @@ def show(user_id,msg_id):
     flash('You deleted the message: "' + selected_message.msg_text + '"')
     return redirect(url_for('messages.index', user_id=found_user.id))
 
-  # return render_template('users/show.html', user=found_user) 
+  #NO GET HERE FOR SHOW

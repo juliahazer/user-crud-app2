@@ -47,7 +47,7 @@ Messages: {{user.username}}
             <td>{{ message.msg_text }}</td>
             <td>
               <form action="{{url_for('messages.show', user_id=user.id, msg_id=message.id)}}?_method=DELETE" method="POST">
-                <a class="btn btn-default btnCustom" href="{{url_for('messages.edit', user_id=user.id, msg_id=message.id)}}">
+                <a class="btn btn-default btnCustom" href="{{url_for('messages.show', user_id=user.id, msg_id=message.id)}}?_method=PATCH" method='PATCH'>
                   Edit
                 </a>   
                 <input class="btn btn-default btnCustom" type="submit" value="Delete">

@@ -52,6 +52,7 @@ User Details
       Edit
     </a>
     <input class="btn btn-default btnCustom" type="submit" value="Delete"></input>
+    <a class="btn btn-default btnCustom" href="{{url_for('messages.index', user_id=user.id)}}">See User's Messages</a>
   </form>
 </div>
 
